@@ -40,7 +40,7 @@ const topLine = Bodies.rectangle(310, 150, 620, 2, {
 World.add(world, [leftWall, rightWall, ground, topLine])
 
 Render.run(render)
-Render.run(engine)
+Runner.run(engine)
 
 let currentBody = null
 let currentFruit = null
@@ -51,11 +51,12 @@ function addFruit() {
   const index = Math.floor(Math.random() * 5)
   const fruit = FRUITS[index]
 
+  console.log(fruit)
   const body = Bodies.circle(300, 50, fruit.radius, {
     index: index,
     isSleeping: true,
     render: {
-      sprite: { texture: `${fruit.name}.png` },
+      sprite: { texture: `./${fruit.name}.png` },
     },
     restitution: 0.2,
   })
@@ -64,6 +65,37 @@ function addFruit() {
   currentFruit = fruit
 
   World.add(world, body)
+}
+
+window.onkeydown = (event) => {
+  if (disableAction) {
+    return
+  }
+
+  switch (event.code) {
+    case 'ArrowLeft':
+      Body.setPosition(currentBody, {
+        x: currentBody.position.x - 10,
+        y: currentBody.position.y,
+      })
+      break
+
+    case 'ArrowRight':
+      Body.setPosition(currentBody, {
+        x: currentBody.position.x + 10,
+        y: currentBody.position.y,
+      })
+      break
+
+    case 'ArrowDown':
+      currentBody.isSleeping = false
+      disableAction = true
+      setTimeout(() => {
+        addFruit()
+        disableAction = false
+      }, 1000)
+      break
+  }
 }
 
 addFruit()
