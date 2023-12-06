@@ -74,6 +74,7 @@ window.onkeydown = (event) => {
 
   switch (event.code) {
     case 'ArrowLeft':
+      if (currentBody.position.x - currentFruit.radius >30)
       Body.setPosition(currentBody, {
         x: currentBody.position.x - 10,
         y: currentBody.position.y,
@@ -81,6 +82,8 @@ window.onkeydown = (event) => {
       break
 
     case 'ArrowRight':
+      if (currentBody.position.x + currentFruit.radius < 590)
+
       Body.setPosition(currentBody, {
         x: currentBody.position.x + 10,
         y: currentBody.position.y,
