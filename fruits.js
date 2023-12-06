@@ -1,31 +1,31 @@
 const FRUITS = [
   {
     name: 'cherry',
-    radius: 33 / 2,
+    radius: 38 / 2,
   },
   {
     name: 'strawberry',
-    radius: 48 / 2,
+    radius: 50 / 2,
   },
   {
     name: 'grape',
-    radius: 61 / 2,
+    radius: 72 / 2,
   },
   {
     name: 'kumkwat',
-    radius: 69 / 2,
+    radius: 88 / 2,
   },
   {
     name: 'orange',
-    radius: 89 / 2,
-  },
-  {
-    name: 'apple',
-    radius: 114 / 2,
+    radius: 106 / 2,
   },
   {
     name: 'pear',
     radius: 129 / 2,
+  },
+  {
+    name: 'apple',
+    radius: 140 / 2,
   },
   {
     name: 'peach',
@@ -37,11 +37,11 @@ const FRUITS = [
   },
   {
     name: 'melon',
-    radius: 259 / 2,
+    radius: 220 / 2,
   },
   {
     name: 'watermelon',
-    radius: 300 / 2,
+    radius: 259 / 2,
   },
 ]
 

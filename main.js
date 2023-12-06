@@ -46,6 +46,7 @@ let currentBody = null
 let currentFruit = null
 let disableAction = false
 let interval = null
+let num_fruit = 0
 
 function addFruit() {
   const index = Math.floor(Math.random() * 5)
@@ -79,7 +80,7 @@ window.onkeydown = (event) => {
       interval = setInterval(() => {
         if (currentBody.position.x - currentFruit.radius > 30)
           Body.setPosition(currentBody, {
-            x: currentBody.position.x - 1,
+            x: currentBody.position.x - 2,
             y: currentBody.position.y,
           })
       }, 5)
@@ -91,7 +92,7 @@ window.onkeydown = (event) => {
       interval = setInterval(() => {
         if (currentBody.position.x + currentFruit.radius < 590)
           Body.setPosition(currentBody, {
-            x: currentBody.position.x + 1,
+            x: currentBody.position.x + 2,
             y: currentBody.position.y,
           })
       }, 5)
@@ -139,6 +140,9 @@ Events.on(engine, 'collisionStart', (event) => {
         }
       )
       World.add(world, newBody)
+
+      // if ()
+      num_fruit++
     }
 
     if (
