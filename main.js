@@ -74,20 +74,27 @@ window.onkeydown = (event) => {
 
   switch (event.code) {
     case 'ArrowLeft':
-      if (currentBody.position.x - currentFruit.radius >30)
-      Body.setPosition(currentBody, {
-        x: currentBody.position.x - 10,
-        y: currentBody.position.y,
-      })
+      if (interval) return
+
+      interval = setInterval(() => {
+        if (currentBody.position.x - currentFruit.radius > 30)
+          Body.setPosition(currentBody, {
+            x: currentBody.position.x - 1,
+            y: currentBody.position.y,
+          })
+      }, 5)
       break
 
     case 'ArrowRight':
-      if (currentBody.position.x + currentFruit.radius < 590)
+      if (interval) return
 
-      Body.setPosition(currentBody, {
-        x: currentBody.position.x + 10,
-        y: currentBody.position.y,
-      })
+      interval = setInterval(() => {
+        if (currentBody.position.x + currentFruit.radius < 590)
+          Body.setPosition(currentBody, {
+            x: currentBody.position.x + 1,
+            y: currentBody.position.y,
+          })
+      }, 5)
       break
 
     case 'ArrowDown':
@@ -98,6 +105,15 @@ window.onkeydown = (event) => {
         disableAction = false
       }, 1000)
       break
+  }
+}
+
+window.onkeyup = (event) => {
+  switch (event.code) {
+    case 'ArrowLeft':
+    case 'ArrowRight':
+      clearInterval(interval)
+      interval = null
   }
 }
 
@@ -124,6 +140,12 @@ Events.on(engine, 'collisionStart', (event) => {
       )
       World.add(world, newBody)
     }
+
+    if (
+      !disableAction &&
+      (collision.bodyA.name === 'topLine' || collision.bodyB.name === 'topLine')
+    )
+      alert('GAME OVER')
   })
 })
 
