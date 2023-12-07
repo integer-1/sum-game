@@ -46,7 +46,6 @@ let currentBody = null
 let currentFruit = null
 let disableAction = false
 let interval = null
-// let num_fruit = 0
 let score = 0
 const scoreElement = document.getElementById('score')
 
@@ -144,8 +143,6 @@ Events.on(engine, 'collisionStart', (event) => {
 
       score++
       updateScore()
-
-      // num_fruit++
     }
 
     if (
