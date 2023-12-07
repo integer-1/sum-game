@@ -3,20 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/style.css" rel="stylesheet" />
+
     <title>Sum Game</title>
-    <style>
-      body {
-        text-align: center;
-      }
-      .order {
-        width: 50%;
-      }
-    </style>
   </head>
   <body>
     <h1>Welcome Sum Game</h1>
-    <div id="app"></div>
-    <img class="order" src="./order.png" alt="order" />
+
+    <div id="app">
+      <div id="score">Score: 0</div>
+      <img class="order" src="./order.png" alt="order" />
+    </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
